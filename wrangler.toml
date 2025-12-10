@@ -1,0 +1,27 @@
+name = "smartcane-worker"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# เปิดให้ Worker เป็น API (ไม่ต้องมี HTML auto content)
+workers_dev = true
+
+# ตั้งค่าให้ Worker ตอบกลับเป็น fetch handler (ค่า default เหมาะกับ API)
+[build]
+command = ""
+
+# environment variables (ค่าจริงจะถูกเก็บเป็น Secrets ไม่เก็บในไฟล์นี้)
+[vars]
+# ค่านี้เป็น placeholder เฉยๆ
+# หากคุณตั้ง Secrets ผ่าน Dashboard หรือ wrangler secret put
+# ค่านั้นจะ override ค่านี้โดยอัตโนมัติ
+ENVIRONMENT = "production"
+
+# เปิด logs เพื่อใช้ tail
+[observability]
+enabled = true
+
+# หากคุณมีหลาย environment เช่น production / staging
+# สามารถเพิ่มส่วนนี้ได้
+# [env.production]
+# [env.staging]
+
